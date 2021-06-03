@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="hottags" translate="label" sortOrder="100">
+            <label>Zero1</label>
+        </tab>
+        <section id="hottags" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Hot Tags</label>
+            <tab>hottags</tab>
+            <resource>Zero1_HotTags::config_hottags</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="active" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="frontend" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Frontend Experience Settings</label>
+                <field id="trigger" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Trigger</label>
+                    <source_model>Zero1\HotTags\Model\Source\Trigger</source_model>
+                    <comment>
+                        <![CDATA[
+                            The trigger is how often the product has either been viewed or added to basket
+                        ]]>
+                    </comment>
+                </field>
+                <field id="triggertext" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Trigger Text</label>
+                    <comment>
+                        <![CDATA[
+                            This gives you the opportunity to change how to the trigger text is worded. For example: you can set the Trigger as 'Purchased', but show this on the frontend as 'Bought'
+                        ]]>
+                    </comment>
+                </field>
+                <field id="triggertimescale" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Trigger Timescale</label>
+                    <source_model>Zero1\HotTags\Model\Source\Time</source_model>
+                    <comment>
+                        <![CDATA[
+                            Please select the timescale in which you'd like the trigger to cound the data (number of uses) from
+                        ]]>
+                    </comment>
+                </field>
+                <field id="triggertimescaletext" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Trigger Timescale Text</label>
+                    <comment>
+                        <![CDATA[
+                            This gives you the opportunity to change how to the timescale text is worded. For example: you can set the Trigger Timescale as 'Last Hour', but show this on the frontend as 'Right Now'
+                        ]]>
+                    </comment>
+                </field>
+                <field id="tag_text" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tag Text</label>
+                    <comment>
+                        <![CDATA[
+                            The following variables will be replaced by their relevant values set above:<br/><br/>
+                            %amount% %triggertext% %triggertimescaletext%<br/><br/>
+                            Example 1: %amount% people are %triggertext% this %triggertimescaletext% - could read as "24 people are viewing this right now"<br/>
+                            Example 2: %triggertext% %amount% times %triggertimescaletext% - could read as "Added to basket 98 times today"
+                        ]]>
+                    </comment>
+                </field>
+                <field id="show_tag_pre_text" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="60">
+                    <label>Show Tag Pre-text</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[
+                            This gives you the opportunity to show some text that will prefix the tag text. For example: "Trending Now!"
+                        ]]>
+                    </comment>
+                </field>
+                <field id="tag_pre_text" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Tag Pre-Text</label>
+                    <depends>
+                        <field id="show_tag_pre_text">1</field>
+                    </depends>
+                </field>
+                <field id="minimum_triggers" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minimum Amount Of Triggers Required</label>
+                    <comment>
+                        <![CDATA[
+                            The tag will not show until this figure has been met by the amount of triggers. For example: If this is set to 50, the tag won't show until at least 50 people have viewed / added / purchased that particular product
+                        ]]>
+                    </comment>
+                </field>
+                <field id="show_tag_after" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Tag After X Seconds</label>
+                    <comment>
+                        <![CDATA[
+                            Value in milliseconds (2000 = 2 seconds)<br/>
+                            To show the tag instantly, please enter 0
+                        ]]>
+                    </comment>
+                </field>
+                <field id="hide_tag_after" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hide Tag After X Seconds</label>
+                    <comment>
+                        <![CDATA[
+                            Value in milliseconds (2000 = 2 seconds)<br/>
+                            If you don't want to hide the tag, please leave this field blank
+                        ]]>
+                    </comment>
+                </field>
+            </group>
+            <group id="design" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Design</label>
+                <field id="background_colour" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                    <label>Background Colour</label>
+                    <comment>
+                        <![CDATA[
+                            Valid CSS colours only
+                        ]]>
+                    </comment>
+                </field>
+                <field id="text_colour" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <label>Text Colour</label>
+                    <comment>
+                        <![CDATA[
+                            Valid CSS colours only
+                        ]]>
+                    </comment>
+                </field>
+                <field id="border_colour" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="30">
+                    <label>Border Colour</label>
+                    <comment>
+                        <![CDATA[
+                            Valid CSS colours only<br/>
+                        ]]>
+                    </comment>
+                </field>
+                <field id="custom_css" translate="label" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40">
+                    <label>Custom CSS</label>
+                    <comment>
+                        <![CDATA[
+                            <strong>Please note: this should only be used by someone with experience in CSS, and when CSS can't be added using the standard M2 method</strong>
+                            <p>Classes available: .zero1-hot-tag .zero1-hot-tag-wrapper</p>
+                        ]]>
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

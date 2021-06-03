@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Zero1_HotTags::hottags_menu"
+             title="Zero1"
+             module="Zero1_HotTags"
+             sortOrder="110"
+             action="hottags"
+             resource="Zero1_HotTags::index"
+             dependsOnModule="Zero1_HotTags"
+        />
+        <add id="Zero1_HotTags::config_menu"
+             title="Configuration"
+             module="Zero1_HotTags"
+             sortOrder="10"
+             resource="Zero1_HotTags::index"
+             parent="Zero1_HotTags::hottags_menu"
+             action="adminhtml/system_config/edit/section/hottags"
+        />
+    </menu>
+</config>

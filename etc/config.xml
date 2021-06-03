@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <hottags>
+            <general>
+                <active>1</active>
+            </general>
+            <frontend>
+                <trigger>added</trigger>
+                <triggertext>Added to basket </triggertext>
+                <triggertimescale>today</triggertimescale>
+                <triggertimescaletext>today</triggertimescaletext>
+                <tag_text>%triggertext% %amount% times %triggertimescaletext%</tag_text>
+                <show_tag_pre_text>1</show_tag_pre_text>
+                <tag_pre_text>Trending Now! </tag_pre_text>
+                <minimum_triggers>10</minimum_triggers>
+                <show_tag_after>2000</show_tag_after>
+            </frontend>
+        </hottags>
+    </default>
+</config>

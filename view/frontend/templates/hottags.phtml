@@ -1,0 +1,63 @@
+<?php
+/** @var \Zero1\HotTags\Block\View $block */
+?>
+<?php if ($block->shouldShowTag()) : ?>
+
+    <div class="zero1-hot-tag" style="<?php echo $block->getTagStyles(); ?> display: none;">
+        <div class="zero1-hot-tag-wrapper">
+            <p><?php echo $block->getTagText(); ?></p>
+        </div>
+    </div>
+
+    <?php if ($block->isAnimationRequired()) : ?>
+        <script>
+            require([
+                'jquery'
+            ], function (
+                jQuery
+            ) {
+                'use strict';
+                jQuery.noConflict();
+                jQuery(document).ready(function() {
+                    
+                    var showAfterSeconds = '<?php echo $block->getShowTagAfterSeconds(); ?>';
+                    var hideAfterSeconds = '<?php echo $block->getHideTagAfterSeconds(); ?>';
+                    var tag = jQuery('.zero1-hot-tag');
+
+                    function showTag() {
+                        console.log('show');
+                        setTimeout(function(){
+                            jQuery(tag).show();
+                        }, showAfterSeconds);
+                    }
+
+                    function hideTag() {
+                        console.log('hide');
+                        setTimeout(function(){
+                            jQuery(tag).hide();
+                        }, hideAfterSeconds);
+                    }
+
+                    if (showAfterSeconds != '') {
+                        showTag();
+                    }
+                    if (hideAfterSeconds != '') {
+                        hideTag();
+                    }
+                    
+                })
+            });
+        </script>
+    <?php endif; ?>
+    
+    <style>
+        .product.media {position: relative;}
+        .zero1-hot-tag {z-index: 2;position: absolute;width: 96%;padding: 2%;}
+        .zero1-hot-tag-wrapper {background: #fff;padding: 2%;text-align: center;border: 1px solid #cfcfcf;}
+        .zero1-hot-tag-wrapper p {margin: 0;}
+        .zero1-hot-tag-wrapper p span {font-weight: bold;}
+    </style>
+
+    <?php echo $block->getCustomCss(); ?>
+
+<?php endif; ?>
