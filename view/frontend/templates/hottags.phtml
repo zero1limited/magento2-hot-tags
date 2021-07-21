@@ -25,14 +25,12 @@
                     var tag = jQuery('.zero1-hot-tag');
 
                     function showTag() {
-                        console.log('show');
                         setTimeout(function(){
                             jQuery(tag).show();
                         }, showAfterSeconds);
                     }
 
                     function hideTag() {
-                        console.log('hide');
                         setTimeout(function(){
                             jQuery(tag).hide();
                         }, hideAfterSeconds);
@@ -52,7 +50,7 @@
     
     <style>
         .catalog-product-view .product.media {position: relative;}
-        .zero1-hot-tag {background: #fff;z-index: 2;position: absolute;width: 96%;padding: 2%;border: 1px solid #cfcfcf;}
+        .zero1-hot-tag {background: #fff;z-index: 2;position: absolute;width: 100%;padding: 2%;border: 1px solid #cfcfcf;}
         .zero1-hot-tag-wrapper {padding: 2%;text-align: center;}
         .zero1-hot-tag-wrapper p {margin: 0;}
         .zero1-hot-tag-wrapper p span {font-weight: bold;}
