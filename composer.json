@@ -2,7 +2,7 @@
     "name": "zero1/module-hot-tags",
     "description": "This Magento 2 module adds messaging to PDP to increase urgency and CTR",
     "type": "magento2-module",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
