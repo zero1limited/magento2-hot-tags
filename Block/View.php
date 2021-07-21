@@ -153,7 +153,7 @@ class View extends \Magento\Framework\View\Element\Template
 
     public function getMinimalTriggerAmount()
     {
-        if (is_int($this->getConfigValue('frontend','minimum_triggers'))) {
+        if ($this->getConfigValue('frontend','minimum_triggers') != '') {
             return $this->getConfigValue('frontend','minimum_triggers');
         }
         return 10;
